@@ -1,0 +1,31 @@
+package com.company;
+
+public class MergeTwoSortedArray {
+    public static void mergeArray(int []array1 ,int []array2 ,int number1 ,int number2 ,int []array3){
+        int i = 0,j = 0,k = 0;
+        while (i < number1 && j < number2){
+            if (array1[i] < array2[j])
+                array3[k++] = array1[i++];
+            else
+                array3[k++] = array2[j++];
+        }
+        while(i < number1)
+            array3[k++] = array1[i++];
+        while(j < number2)
+        array3[k++] = array2[j++];
+        }
+
+    public static void main(String[] args) {
+        int []array1 = {11,31,53,85};
+        int number1 = array1.length;
+        int []array2 = {22,42,64,96};
+        int number2 = array2.length;
+        int []array3 = new int[number1+number2];
+
+        mergeArray(array1,array2,number1,number2,array3);
+
+        System.out.println("After merging Array");
+        for (int i = 0; i<number1+number2; i++)
+            System.out.print(array3[i]+ " ");
+    }
+}
